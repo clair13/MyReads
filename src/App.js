@@ -25,7 +25,7 @@ class BooksApp Component {
 
   render() {
     return(
-      <div>
+      <div className="app">
         <Route exact path='/' render={() => (
           <BookList
             books={this.state.books}
