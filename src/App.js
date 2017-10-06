@@ -17,10 +17,19 @@ class BooksApp Component {
     books: []
   }
 
-  componentDidMount() {
+  getBooks =() => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
+  }
+
+  componentDidMount() {
+    this.getBooks()
+  }
+
+  handleChange = (book, shelfName) => {
+    BooksAPI.update(book, shelfName)
+    this.getBooks()
   }
 
   render() {
@@ -29,6 +38,7 @@ class BooksApp Component {
         <Route exact path='/' render={() => (
           <BookList
             books={this.state.books}
+            onHandleChange= { this.handleChange }
           />
         )}/>
         <Route path='/search' render={() => (

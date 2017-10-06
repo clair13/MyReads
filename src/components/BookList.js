@@ -6,18 +6,13 @@ import PropTypes from 'prop-types'
 class BookList extends Component {
 	static propTypes = {
 		books: PropTypes.array.isRequired
+		onHandlechange: PropTypes.func.isRequired
 	}
 
-	state = { 
-	   shelf: ''
-	}
 	
 	render() {
-		const { books }= this.this.props
+		const { books, onHandlechange }= this.props
 
-		const currentlyReading=this.props.books.filter((book=>book.shelf==='currentlyReading'))
-		const wantToRead=his.props.books.filter((book=>book.shelf==='wantToRead'))
-		const readBooks=his.props.books.filter((book=>book.shelf==='read'))
 
 		return (
 		<div className="list-books">
@@ -28,16 +23,19 @@ class BookList extends Component {
               <BookShelf
                   books={this.props.books.filter(book=>book.shelf==='currentlyReading')}
                   shelfName="Currently Reading"
+                  onHandlechange={onHandlechange}
               />
 
               <BookShelf
                   books={this.props.books.filter(book=>book.shelf==='wantToRead')}
                   shelfName="Want to Read"
+                  onHandlechange={onHandlechange}
               />
 
               <BookShelf
                   books={this.props.books.filter(book=>book.shelf==='read')}
                   shelfName="Read"
+                  onHandlechange={onHandlechange}
               />
             </div>
 

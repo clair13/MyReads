@@ -6,7 +6,7 @@ class BookShelf extends Component {
 		books:PropTypes.array.isRequired
 	}
 	render(){
-      const { bboks } = this.this.props
+      const { books, onHandleChange } = this.props
 
       return (
       	       <div className="bookshelf">
@@ -21,7 +21,7 @@ class BookShelf extends Component {
       	                <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
       	                <div className="book-shelf=changer">
       	                  <select value={book.shelf} 
-                                        onChange={(event) =>this.updateShelf(event.target.value)}>
+                                        onChange={(e) =>onHandleChange(e.target.value)}>
                                         <option value="" disabled>Move to...</option>
                                         <option value="currentlyReading">Currently Reading</option>
                                         <option value="wantToRead">Want to Read</option>
