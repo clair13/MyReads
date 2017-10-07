@@ -11,7 +11,7 @@ class BookList extends Component {
 
 	
 	render() {
-		const { books, onHandlechange }= this.props
+		const { onHandlechange }= this.props
 
 
 		return (
