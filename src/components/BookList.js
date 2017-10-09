@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import BookShelf from './BookShelf.js'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 class BookList extends Component {
 	static propTypes = {
-		books: PropTypes.array.isRequired
+		books: PropTypes.array.isRequired,
 		onHandlechange: PropTypes.func.isRequired
 	}
 
@@ -17,7 +17,7 @@ class BookList extends Component {
 		return (
 		<div className="list-books">
             <div className="list-books-title">
-              <h1>MyReads</h1>
+              <h1>My Reads</h1>
             </div>
             <div className="list-books-content">
               <BookShelf

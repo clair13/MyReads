@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class BookShelf extends Component {
@@ -14,7 +14,7 @@ class BookShelf extends Component {
       	         <div className="bookshelf-books">
 
       	         <ol className="books-grid">
-      	           {books.map(book)=>
+      	           {books.map((book)=>(
       	             <li key={book.id}>
       	            <div className="book">
       	              <div className="book-top">

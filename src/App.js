@@ -1,12 +1,11 @@
-import React from 'react'
-import React, { Compoent } from 'react'
+import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import BookList from './components/BookList'
 import SearchPage from './components/SearchPage'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
-class BooksApp Component {
+class BooksApp extends Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -27,7 +26,7 @@ class BooksApp Component {
     this.getBooks()
   }
 
-  handleChange = (book, shelfName) => {
+  handleChange =(book, shelfName) => {
     BooksAPI.update(book, shelfName)
     this.getBooks()
   }
@@ -38,7 +37,7 @@ class BooksApp Component {
         <Route exact path='/' render={() => (
           <BookList
             books={this.state.books}
-            onHandleChange= { this.handleChange }
+            onHandleChange={ this.handleChange }
           />
         )}/>
         <Route path='/search' render={() => (
