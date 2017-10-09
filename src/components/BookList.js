@@ -12,19 +12,19 @@ function BookList (props) {
               <BookShelf
                   books={props.books.filter(book=>book.shelf==='currentlyReading')}
                   shelfName="Currently Reading"
-                  onHandlechange={props.onHandlechange}
+                  onHandlechange={props.onHandleChange}
               />
 
               <BookShelf
                   books={props.books.filter(book=>book.shelf==='wantToRead')}
                   shelfName="Want to Read"
-                  onHandlechange={props.onHandlechange}
+                  onHandlechange={props.onHandleChange}
               />
 
               <BookShelf
                   books={props.books.filter(book=>book.shelf==='read')}
                   shelfName="Read"
-                  onHandlechange={props.onHandlechange}
+                  onHandlechange={props.onHandleChange}
               />
             </div>
 
