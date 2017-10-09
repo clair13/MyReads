@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import { Switch } from 'react-router'
 import BookList from './components/BookList'
 import SearchPage from './components/SearchPage'
+import NoResult from './components/NoResult'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -32,7 +33,7 @@ class BooksApp extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="app">
         <Switch>
           <Route exact path='/' render={() => (
@@ -47,6 +48,7 @@ class BooksApp extends Component {
               onHandleChange={ this.handleChange }
             />
           )}/>
+          <Route component={NoResult}/>
         </Switch>
       </div>
     )
