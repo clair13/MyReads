@@ -1,27 +1,21 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 
-class BookShelf extends Component {
-	static propTypes={
-		books:PropTypes.array.isRequired
-	}
-	render(){
-      const { books, onHandleChange } = this.props
+function BookShelf (props) {
 
       return (
       	       <div className="bookshelf">
-      	         <h2> className="bookshelf-title">{this.props.shelfName}</h2>
+      	         <h2> className="bookshelf-title">{props.shelf}</h2>
       	         <div className="bookshelf-books">
 
       	         <ol className="books-grid">
-      	           {books.map((book)=>(
+      	           {props.books.map((book)=>(
       	             <li key={book.id}>
       	            <div className="book">
       	              <div className="book-top">
       	                <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
       	                <div className="book-shelf=changer">
       	                  <select value={book.shelf} 
-                                        onChange={(e) =>onHandleChange(e.target.value)}>
+                                        onChange={(e) =>onHandleChange(book,e.target.value)}>
                                         <option value="" disabled>Move to...</option>
                                         <option value="currentlyReading">Currently Reading</option>
                                         <option value="wantToRead">Want to Read</option>
@@ -43,7 +37,6 @@ class BookShelf extends Component {
                </div>
              </div>
         )
-    }
 }
 
 export default BookShelf

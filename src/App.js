@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { Switch } from 'react-router'
 import BookList from './components/BookList'
 import SearchPage from './components/SearchPage'
 import * as BooksAPI from './BooksAPI'
@@ -16,35 +17,43 @@ class BooksApp extends Component {
     books: []
   }
 
-  getBooks =() => {
+  getAllBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
 
-  componentDidMount() {
-    this.getBooks()
+  componentDidMount = () => {
+    this.getAllBooks()
   }
 
-  handleChange =(book, shelfName) => {
-    BooksAPI.update(book, shelfName)
-    this.getBooks()
+  handleChange =(book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      book.shelf = shelf
+      this.setState(previousState => ({
+        books: previousState.books.filter(b=> b.id !== book.id).concat([book])
+      }))
+    })
+    
   }
 
   render() {
     return(
       <div className="app">
-        <Route exact path='/' render={() => (
-          <BookList
-            books={this.state.books}
-            onHandleChange={ this.handleChange }
-          />
-        )}/>
-        <Route path='/search' render={() => (
-          <SearchPage
-            onHandleChange={ this.handleChange }
-          />
-        )}/>
+        <Switch>
+          <Route exact path='/' render={() => (
+            <BookList
+              books={this.state.books}
+              onHandleChange={ this.handleChange }
+            />
+          )}/>
+          <Route path='/search' render={() => (
+            <SearchPage
+              books={this.state.books}
+              onHandleChange={ this.handleChange }
+            />
+          )}/>
+        </Switch>
       </div>
     )
   }

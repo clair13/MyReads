@@ -6,6 +6,7 @@ import * as BooksAPI from '../BooksAPI'
 
 class SearchPage extends Component {
 	static propTypes = {
+		books: PropTypes.array,
 		onHandleChange: PropTypes.func.isRequired
 	}
 
