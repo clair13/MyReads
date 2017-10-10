@@ -20,7 +20,7 @@ class SearchPage extends Component {
             query: query
         })
         if (query){
-            BooksAPI.search(query.trim(), 50).then((results) => {
+            BooksAPI.search(query.trim(), 60).then((results) => {
                 if(!results || results.error){
                     this.setState({results: []})
                 } else {
@@ -56,7 +56,7 @@ class SearchPage extends Component {
                 <input type="text" 
                         placeholder="Search by title or author"
                         value={this.state.query}
-                        onChange={(event) => this.updateQuery(event.target.value)}/>
+                        onChange={(e) => this.updateQuery(e.target.value)}/>
 
               </div>
             </div>
@@ -73,7 +73,7 @@ class SearchPage extends Component {
                                         <option value="" disabled>Move to...</option>
                                         <option value="currentlyReading">Currently Reading</option>
                                         <option value="wantToRead">Want to Read</option>
-                                        <option value="read">Read</option>
+                                        <option value="Read">Read</option>
                                         <option value="none">None</option>
                                     </select>
                                 </div>
@@ -88,7 +88,7 @@ class SearchPage extends Component {
                         </li>
                         ))}             
                       
-                      </ol>
+                  </ol>
             </div>
             <div className="back-arrow">
                 <Link to="/">Home</Link>
