@@ -1,0 +1,15 @@
+/* footer */
+
+.footer {
+  position: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  
+}
+
+.footer-text {
+  color: #55555;
+  font-size: .75em;
+}

@@ -4,6 +4,7 @@ import { Switch } from 'react-router'
 import BookList from './components/BookList'
 import SearchPage from './components/SearchPage'
 import NoResult from './components/NoResult'
+import Footer from './components/Footer'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -50,6 +51,7 @@ class BooksApp extends Component {
           )}/>
           <Route component={NoResult}/>
         </Switch>
+        <Footer />
       </div>
     )
   }
