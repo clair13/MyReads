@@ -20,7 +20,7 @@ function BookList (props) {
                   onHandleChange={props.onHandleChange}
               />
                <BookShelf
-                  books={props.books.filter(book=>book.shelf==='Read')}
+                  books={props.books.filter(book=>book.shelf==='read')}
                   shelf="Read"
                   onHandleChange={props.onHandleChange}
               />

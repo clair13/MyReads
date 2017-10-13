@@ -4,6 +4,10 @@ This is the starter template for the final assessment project for Udacity's Reac
 
 Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
 
+## Description
+
+The purpose of this app is to list books into different shelves.There are 3 categories os shelves : CurrentlyReading ,WantToRead ,Read .You can change shelf and also search new books from BooksAPI server(A JavaScript API for the provided Udacity backend).
+
 ## TL;DR
 
 To get started developing right away:
